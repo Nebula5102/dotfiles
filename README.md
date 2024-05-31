@@ -5,6 +5,9 @@ Feel free to clone the repository or use it as a reference for porting your own 
 ![Example Photo](https://github.com/Nebula5102/dotfiles/blob/main/Example.png)
 
 If you are looking for great Nix configuration resources checkout:
+
 [Vimjoyer](https://www.youtube.com/@vimjoyer)
+
 [Nix Home-Manager from scratch](https://www.youtube.com/watch?v=rUvjkBuKua4&t=2614s)
+
 [Manage Your Dotfiles with Home-Manager](https://www.youtube.com/watch?v=IiyBeR-Guqw&t=703s)
