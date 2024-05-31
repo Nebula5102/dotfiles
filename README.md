@@ -3,6 +3,8 @@ This repository includes my configuration for my Home-Manager, and Nix configs. 
 
 Feel free to clone the repository or use it as a reference for porting your own setup to Home-Manager.
 ![Example Photo](https://github.com/Nebula5102/dotfiles/blob/main/Example.png)
+![Example Photo NVim](https://github.com/Nebula5102/dotfiles/blob/main/Nvim.png)
+![Example Photo NVim Linting](https://github.com/Nebula5102/dotfiles/blob/main/NvimLinting.png)
 
 If you are looking for great Nix configuration resources checkout:
 
