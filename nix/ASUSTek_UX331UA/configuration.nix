@@ -53,103 +53,31 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  
-  programs = {
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-    };
-    fish.enable = true;
-};
-
-virtualisation.docker.enable = true;
-
-environment.variables = {
-	SUDO_EDITOR = "nvim";
-	SYSTEMD_EDITOR = "nvim";
-	EDITOR = "nvim";
-	VISUAL = "nvim";
-};
 
   users.users.nicklausb = {
     isNormalUser = true;
     description = "Nicklaus Badyal";
     extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.fish;
     packages = with pkgs; [
-      
       #Applications
-      discord
       firefox
-      spotify
     ];
   };
+  
+  nix.settings.allowed-users = [ "nicklausb" ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    starship
     kitty
     git
-    neofetch
-    clang
-    vscode.fhs
+    gh
   ];
 
-  programs.starship = {
-    enable = true;
-    settings = {
-	add_newline = false;
-    	format = "[[░▒▓](#C5727A)[ 󱄅 ](bg:#C5727A fg:#FFFFFF)$username[](bg:#BE9DB8 fg:#C5727A)$directory[](bg:#81A1C1 fg:#BE9DB8)$git_branch$git_status[](bg:#EFD49F fg:#81A1C1)$rust$nodejs[](bg:#B1C89D fg:#EFD49F)$time[](fg:#B1C89D)\n$character](white)";
-	character = {
-	  success_symbol = "[󰘍 ](#C5727A)";
-	  error_symbol = "[󰘍 ](#EFD49F)";
-	};
-	username = {
-	  show_always = true;
-	  style_user = "bg:#C5727A fg:#FFFFFF";
-	  style_root = "bg:#C5727A fg:#FFFFFF";
-	  format = "[ $user ]($style)";
-	};
-	directory = {
-	  home_symbol = "󰋞 ";
-    	  format = "[ $path ](bg:#BE9DB8 fg:#FFFFFF)";
-	};
-	git_branch = {
-	  symbol = "  ";
-	  style = "bg:#81A1C1";
-	  format = "[[ $symbol $branch ](fg:#FFFFFF bg:#81A1C1)]($style)";
-	};
-	git_status = {
-	  style = "bg:#81A1C1";
-	  format = "[[ $all_status $ahead_behind ](fg:#FFFFFF bg:#81A1C1)]($style)";
-	};
-	rust = {
-	  symbol = "  ";
-	  style = "bg:#EFD49F";
-	  format = "[[ $symbol ($version) ](fg:#FFFFFF bg:#EFD49F)]($style)";
-	};
-	nodejs = {
-	  symbol = "  ";
-	  style = "bg:#EFD49F";
-	  format = "[[ $symbol ($version) ](fg:#FFFFFF bg:#EFD49F)]($style)";
-	};
-	time = {
-	  disabled = false;
-	  time_format = "%R";
-	  style = "bg:#B1C89D fg:#ffffff";
-	  format = "[  $time ]($style)";
-	};
-	directory.substitutions = {
-	};
-    };
-  };
 
   fonts.packages = with pkgs; [
-    nerdfonts
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
   
   system.stateVersion = "23.11"; 

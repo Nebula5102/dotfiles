@@ -11,7 +11,7 @@ toggle=0
 if [ "$toggle" -eq 1 ]; then
     sed -i "${comment_line}s/^# //" "$script_filepath"
     sed -i "${toggle_line}s/.*/toggle=0/" "$toggle_filepath"
-    echo "launch fish -c '~/.config/kitty/open.sh && neofetch --source ~/Pictures/ascii_2.txt && fish'" > ~/.config/kitty/launch.conf
+    echo "launch sh -c '~/.config/kitty/open.sh && neofetch --source ~/Pictures/ascii_2.txt && exec fish'" > ~/.config/kitty/launch.conf
     echo "Safe for work"
 else
     sed -i "${comment_line}s/^/# /" "$script_filepath"
