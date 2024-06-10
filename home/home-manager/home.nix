@@ -8,12 +8,11 @@
         neofetch
         kitty
 
-		teams-for-linux
-
 		#LSPs
 		lua-language-server # Lua
 		rnix-lsp # Nix
 		nodePackages_latest.pyright # Python
+		rust-analyzer # Rust
 		# ccls # C not yet fully implemented TODO
     ];
 
@@ -103,6 +102,8 @@
 						p.tree-sitter-json
 						p.tree-sitter-bash
 						p.tree-sitter-rust
+						p.tree-sitter-typescript
+						p.tree-sitter-c
 					]));
 					config = toLuaFile ./nvim/plugin/tree-sitter.lua;
 				}

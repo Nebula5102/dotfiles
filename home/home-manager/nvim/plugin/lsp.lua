@@ -30,6 +30,15 @@ lspconfig.pyright.setup{}
 --    	};
 --  	}
 --}
+require'lspconfig'.rust_analyzer.setup{
+  settings = {
+    ['rust-analyzer'] = {
+      diagnostics = {
+        enable = false;
+      }
+    }
+  }
+}
 
 --Autocompletion setup
 require'compe'.setup{
